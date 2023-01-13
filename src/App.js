@@ -8,6 +8,7 @@ import auth from './services/auth';
 import CardsPrac from './view/cards';
 import PopupPrac from './view/PopupPrac';
 import ThemeFactory from './componentListNPM/themes/themeFactory';
+import NavPrac from './view/practiceNav';
 // import NavThemeFactory from './componentListNPM/navThemes/navThemeFactory';
 
 //fonts
@@ -54,7 +55,8 @@ export default class App extends Component {
       switchCase:[
         {path:"/", comp:CardsPrac, name: "Cards" },
         {path: "/popups", comp:PopupPrac, name: "Popups"},
- 
+        {path:"/nav", comp:NavPrac, name: "NavBar", style:{color:"orange", textDecoration:"none"}},
+        {path:"/logout", comp:CardsPrac, name: "Logout"}
       ]
 
     }
@@ -143,7 +145,7 @@ handleChange = (event) => {
   render(){
     let styles = this.state.styles;
   return (
-    <div className= "fontNormal" style={{
+    <div style={{
       width:"100vw", 
       height:"100vh", 
       display:"flex", 
@@ -152,7 +154,6 @@ handleChange = (event) => {
       
        
       flexDirection:"column"}}>
-        
       
       {this.state.start && <Dispatch app={{run:this.run, state:this.state, handlechange:this.handleChange, dispatch:this.dispatch, factory:this.factory}} />}
     </div>

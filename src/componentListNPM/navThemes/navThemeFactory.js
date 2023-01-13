@@ -1,5 +1,6 @@
 // import DefaultSideNav from "./defaultSideBar";
 // import DefaultTopNav from "./defaultTopBar";
+import LegatoNav from "./legatoNav";
 
 
 class NavThemeFactory {
@@ -8,7 +9,7 @@ class NavThemeFactory {
     factory ={
     //     defaultSideNav: DefaultSideNav.getNavTheme(),
     //    defaultTopNav: DefaultTopNav.getNavTheme(),
-
+    legato: LegatoNav.getNavTheme()
     }
 
     registerComponents(register){

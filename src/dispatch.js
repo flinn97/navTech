@@ -1,5 +1,6 @@
 import './App.css';
 import { Component } from 'react';
+import logo from './view/testProfile.png';
 // import Home from './view/home';
 import Nav from './view/nav.js';
 // import Login from './view/login';
@@ -30,11 +31,8 @@ export default class Dispatch extends Component {
       height:"96vh",
       }}>
         
-
-
-
-     <Nav app={app}/> 
-     <div style={{paddingTop:"50px",paddingLeft:"50px", width:"100%", height:"100%"}}>
+     <Nav logo={logo} app={app} type="sideBarNav" template="legato" theme="legato" sectionsContainerStyle={{backgroundColor: "green"}} sectionOneTheme="flinnApps" logoTheme="flinnApps" />
+     <div style={{paddingTop:"50px", paddingLeft:"50px", width:"100%", height:"100%"}}>
      <Routes>
       {state.switchCase?.map((obj, index)=>
         <Route path={obj.path} element={<obj.comp app={app}/>} />
