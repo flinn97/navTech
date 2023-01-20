@@ -53,7 +53,7 @@ export default class App extends Component {
       defaultTheme: "legato",
       globalTheme: "",
       switchCase:[
-        {path:"/", comp:CardsPrac, name: "Cards" },
+        {path:"/", comp:CardsPrac, name: "Cards" }, //icon: "home.svg"
         {path: "/popups", comp:PopupPrac, name: "Popups"},
         {path:"/nav", comp:NavPrac, name: "NavBar", style:{color:"orange", textDecoration:"none"}},
         {path:"/logout", comp:CardsPrac, name: "Logout"}

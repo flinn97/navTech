@@ -21,4 +21,4 @@ class NavThemeFactory {
 
    
 }
-export default NavThemeFactory;
+export default new NavThemeFactory();

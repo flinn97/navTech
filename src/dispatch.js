@@ -31,7 +31,7 @@ export default class Dispatch extends Component {
       height:"96vh",
       }}>
         
-     <Nav logo={logo} app={app} type="sideBarNav" template="legato" theme="legato" sectionsContainerStyle={{backgroundColor: "green"}} sectionOneTheme="flinnApps" logoTheme="flinnApps" />
+     <Nav logo={logo} app={app} type="sideBarNav" template="legato" theme="legato" sectionsContainerStyle={{backgroundColor: "green"}} sectionOneTheme="flinnApps" logoTheme="flinnApps" /> //notification: int variable of watching something? Or string pointing to type that gets info from object for notification. Object contains function for notifications, and it goes and interacts with it. Either give it a string or a User Object.
      <div style={{paddingTop:"50px", paddingLeft:"50px", width:"100%", height:"100%"}}>
      <Routes>
       {state.switchCase?.map((obj, index)=>

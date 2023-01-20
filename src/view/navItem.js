@@ -20,7 +20,7 @@ export default class NavItems extends Component {
     let theme = {
       legato: <LegatoNavItems app={app} alignment={this.props.alignment} theme={this.props.theme} navContainerStyle={this.props.navContainerStyle} navContainerTheme={this.props.navContainerTheme} sectionsContainerTheme={this.props.sectionsContainerTheme} sectionsContainerStyle={this.props.sectionsContainerStyle} sectionOneStyle={this.props.sectionOneStyle} sectionOneTheme={this.props.sectionOneTheme} navItemStyle={this.props.navItemStyle} navItemTheme={this.props.navItemTheme} linksWrapperStyle={this.props.linksWrapperStyle} linksWrapperTheme={this.props.linksWrapperTheme} linksTheme={this.props.linksTheme} />
     }
-    let f = NavThemeFactory.getNavThemeFactory();
+    let f = NavThemeFactory?.getNavThemeFactory();
     let style = this.props.theme?f[this.props.theme]:state.theme?f[state.theme]:f.default;
     let wrapper = theme[this.props.alignment];
   return (
@@ -48,7 +48,7 @@ class LegatoNavItems extends Component {
     let theme = {
       
     }
-    let f = NavThemeFactory.getNavThemeFactory();
+    let f = NavThemeFactory?.getNavThemeFactory();
     let style = this.props.theme?f[this.props.theme]:state.theme?f[state.theme]:f.default;
     let item = theme[this.props.alignment];
   return (

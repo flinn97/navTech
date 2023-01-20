@@ -21,7 +21,7 @@ export default class Legato extends Component {
     
     let switchcase = app.state.switchcase;
     let dispatch = app.dispatch;
-    let f = NavThemeFactory.getNavThemeFactory();
+    let f = NavThemeFactory?.getNavThemeFactory();
     let theme = this.props.theme?f[this.props.theme]:state.theme?f[state.theme]:f.default;
     let style = theme[this.props.alignment]
   return (
@@ -39,5 +39,3 @@ export default class Legato extends Component {
         
   )}
 }
-
-//fill out section two and three styles to match line 29

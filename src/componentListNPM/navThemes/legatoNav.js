@@ -16,13 +16,15 @@ class LegatoNav {
           sectionFive: {display:"flex", flexDirection:"column", height:"100px", alignItems: "center", justifyContent: "center"},
           logoStyle: {width:"86px"},
           logoWrapper: {width:"100%", height:"100%"},
+          //logoWrapperTheme: Do we still need to set something for this or would this just navigato to LogoWrapper on a different template?
           profilePicWrapper: {display:"flex", flexDirection:"column", height:"100px", alignItems: "center", justifyContent: "center"},
           profilePicTheme: {fonts: {font1:"Inter"}, fontColors: {color1: "green"}, fontWeight: {bold: "800"}, fontSize: {fontSize1: "11px"}},
           navItemStyle: {},
-          navItemTheme: {},
           linksWrapperStyle: {}, 
-          linksWrapperTheme: {},
-          linksTheme: {}
+          //finish this
+          // profileComponent: {
+          //   wrapper: {}
+          // },
           },
           // Styling for Side Bar
           left: {
@@ -38,10 +40,7 @@ class LegatoNav {
             profilePicWrapper: {display:"flex", flexDirection:"column", height:"100px", alignItems: "center", justifyContent: "center"},
             profilePicTheme: {fonts: {font1:"Inter"}, fontColors: {color1: "green"}, fontWeight: {bold: "800"}, fontSize: {fontSize1: "11px"}},
             navItemStyle: {},
-            navItemTheme: {},
             linksWrapperStyle: {}, 
-            linksWrapperTheme: {},
-            linksTheme: {}
             }
         }
         return style
