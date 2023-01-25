@@ -9,6 +9,7 @@ import CardsPrac from './view/cards';
 import PopupPrac from './view/PopupPrac';
 import ThemeFactory from './componentListNPM/themes/themeFactory';
 import NavPrac from './view/practiceNav';
+import Cel from './pics/celestial.jpg'
 // import NavThemeFactory from './componentListNPM/navThemes/navThemeFactory';
 
 //fonts
@@ -50,12 +51,12 @@ export default class App extends Component {
       backendUpdate:[],
       backend: false,
       myswitch: "home",
-      defaultTheme: "legato",
+      defaultTheme: "default",
       globalTheme: "",
       switchCase:[
-        {path:"/", comp:CardsPrac, name: "Cards" }, //icon: "home.svg"
+        {path:"/", comp:CardsPrac, name: "Cards",}, //icon: "home.svg"   linkIcon:Cel, notification:2, notifyTheme:"flinnApps"
         {path: "/popups", comp:PopupPrac, name: "Popups"},
-        {path:"/nav", comp:NavPrac, name: "NavBar", style:{color:"orange", textDecoration:"none"}},
+        {path:"/nav", comp:NavPrac, name: "NavBar", },
         {path:"/logout", comp:CardsPrac, name: "Logout"}
       ]
 

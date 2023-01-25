@@ -9,7 +9,7 @@ import ProfilePic from './navBarProfilePic';
 
 import NavThemeFactory from '../componentListNPM/navThemes/navThemeFactory';
 
-export default class Legato extends Component {
+export default class DefaultNav extends Component {
   constructor(props){
     super(props);
   }
@@ -37,10 +37,7 @@ export default class Legato extends Component {
       {...style.sectionTwo}}>
         <NavItems app={app} alignment={this.props.alignment} theme={this.props.theme} obj={this.props.obj} options={this.props.options}/>
       </div>
-     <div style={this.props.options?.sectionThreeStyle?{...this.props.options?.sectionThreeStyle}:
-     this.props.options?.sectionThreeTheme?{...f[this.props.options?.sectionThreeTheme][this.props.alignment].sectionThree}:{...style.sectionThree}}>
-        <ProfilePic app={app} alignment={this.props.alignment} theme={this.props.theme} obj={this.props.obj} options={this.props.options} />
-      </div> 
+     
     </div>
         
   )}

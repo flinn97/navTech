@@ -13,6 +13,66 @@ import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 
 
 //model
+/**
+ * props
+ * template
+ * theme
+ * type
+ * options
+ * obj
+ * 
+ * Options for nav for all current themes
+ * logoImageTheme
+ * logoImageSyle
+ * logoTheme - type
+ * logoWrapperTheme
+ * logoWrapperStyle
+ * navItemTheme
+ * navItemStyle
+ * obj.navItemTheme
+ * obj.navItemStyle
+ * activeNavItemTheme
+ * activeNavItemStyle
+ * obj.activeNavItemTheme
+ * obj.activeNavItemStyle
+ * singleLinkWrapperTheme
+ * singleLinkWrapperStyle
+ * obj.singleLinkWrapperTheme
+ * obj.singleLinkWrapperStyle
+ * activeSingleLinkWrapperTheme
+ * activeSingleLinkWrapperStyle
+ * obj.activeSingleLinkWrapperTheme
+ * obj.activeSingleLinkWrapperStyle
+ * obj.linkIcon
+ * linkIconTheme
+ * linkIconStyle
+ * obj.linkIconTheme
+ * obj.linkIconStyle
+ * notifyTheme
+ * notifyStyle
+ * obj.notifyTheme
+ * obj.notifyStyle
+ * linksWrapperTheme
+ * linksWrapperStyle
+ * linksTheme - type
+ * profilePicInnerWrapperTheme
+ * profilePicInnerWrapperStyle
+ * profilePicImageTheme
+ * profilePicImageStyle
+ * profilePicWrapperTheme
+ * profilePicTheme - type
+ * sectionOneStyle
+ * sectionOneTheme
+ * sectionTwoStyle
+ * sectionTwoTheme
+ * sectionThreeStyle
+ * sectionThreeTheme
+ * sectionsContainerStyle
+ * sectionsContainerTheme
+ * navContainerStyle
+ * navContainerTheme
+ * 
+ */
 export default class Dispatch extends Component {
   constructor(props){
     super(props);
@@ -31,7 +91,15 @@ export default class Dispatch extends Component {
       height:"96vh",
       }}>
         
-     <Nav logo={logo} app={app} type="sideBarNav" template="legato" theme="legato" sectionsContainerStyle={{backgroundColor: "green"}} sectionOneTheme="flinnApps" logoTheme="flinnApps" /> //notification: int variable of watching something? Or string pointing to type that gets info from object for notification. Object contains function for notifications, and it goes and interacts with it. Either give it a string or a User Object.
+     <Nav  app={app} type="sideBarNav"  
+     options={{
+      logo:logo,
+      
+     }}
+  
+     
+     /> 
+     {/* //notification: int variable of watching something? Or string pointing to type that gets info from object for notification. Object contains function for notifications, and it goes and interacts with it. Either give it a string or a User Object. */}
      <div style={{paddingTop:"50px", paddingLeft:"50px", width:"100%", height:"100%"}}>
      <Routes>
       {state.switchCase?.map((obj, index)=>

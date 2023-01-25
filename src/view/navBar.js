@@ -1,11 +1,11 @@
 import { Component } from 'react';
 // import auth from '../services/auth';
 import "../App.css";
-import Legato from './legatoNavBar';
+import Legato from './legatoNavBar.js';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
-import NavThemeFactory from '../componentListNPM/navThemes/navThemeFactory';
-
-
+import NavThemeFactory from '../componentListNPM/navThemes/navThemeFactory.js';
+import DefaultNav from './defaultNavBar.js'
+import FlinnApps from './flinnAppsNavBar.js';
 
 
 export default class NavBar extends Component {
@@ -18,47 +18,25 @@ export default class NavBar extends Component {
     let state = app.state;
     let styles = state.styles;
     
-    let switchcase = app.state.switchcase;
+    let switchCase = app.state.switchCase;
     let dispatch = app.dispatch;
     let template = {
-      legato : <Legato logo={this.props.logo} app={app} alignment={this.props.alignment} theme={this.props.theme} navContainerStyle={this.props.navContainerStyle} navContainerTheme={this.props.navContainerTheme} sectionsContainerTheme={this.props.sectionsContainerTheme} sectionsContainerStyle={this.props.sectionsContainerStyle} sectionOneStyle={this.props.sectionOneStyle} sectionOneTheme={this.props.sectionOneTheme} logoWrapperStyle={this.props.logoWrapperStyle} logoWrapperTheme={this.props.logoWrapperTheme} logoTheme={this.props.logoTheme} logoImageStyle={this.props.logoImageStyle} logoImageTheme={this.props.logoImageTheme} navItemStyle={this.props.navItemStyle} navItemTheme={this.props.navItemTheme} linksWrapperStyle={this.props.linksWrapperStyle} linksWrapperTheme={this.props.linksWrapperTheme} linksTheme={this.props.linksTheme} />,
-      default : <Def app={app} theme={this.props.theme} />
+      legato : <Legato app={app} alignment={this.props.alignment} theme={this.props.theme? this.props.theme: "legato"} obj = {this.props.obj} template={this.props.template} options={this.props.options}/>,
+       flinnApps :  <FlinnApps app={app} alignment={this.props.alignment} theme={this.props.theme? this.props.theme: "flinnApps"} obj = {this.props.obj} template={this.props.template} options={this.props.options}/>,
+      default :  <DefaultNav app={app} alignment={this.props.alignment} theme={this.props.theme? this.props.theme:state.defaultTheme?state.defaultTheme: "default"} obj = {this.props.obj} template={this.props.template} options={this.props.options}/>,
     }
     let f = NavThemeFactory?.getNavThemeFactory();
-    let theme = this.props.theme?f[this.props.theme]:state.theme?f[state.theme]:f.default;
+    let theme = this.props.theme?f[this.props.theme]:this.props.template?f[this.props.template]: state.defaultTheme?f[state.defaultTheme]:f.default;
     let container = theme[this.props.alignment];
   return (
-    <div style={this.props.navContainerStyle?{...this.props.navContainerStyle}:this.props.navContainerTheme?f[this.props.navContainerTheme][this.props.alignment].navContainer:container.navContainer}>
+    <div style={
+      this.props.options?.navContainerStyle?{...this.props.options?.navContainerStyle}:
+      this.props.options?.navContainerTheme?f[this.props.options?.navContainerTheme][this.props.alignment].navContainer:
+      container.navContainer}>
       {this.props.template?(<>{template[this.props.template]}</>):(<>{template.default}</>)}
     </div>
         
   )}
 }
 
-class Def extends Component {
-  constructor(props){
-    super(props);
-  }
-
-  render(){
-    let app = this.props.app;
-    let state = app.state;
-    let styles = state.styles;
-    
-    let switchcase = app.state.switchcase;
-    let dispatch = app.dispatch;
-    let theme = {
-      
-    }
-  return (
-    <div style={{position:"absolute", top:"0", left:"0", display:"flex", flexDirection:"row", background:"purple", width:"100%", height:"100px"}}>
-
-      {state.switchCase.map((obj, index)=> 
-      <Link style={{...obj.style, position:obj.path.includes("logout")&&"absolute",
-    right:obj.path.includes("logout")&&0,
-    }} to={obj.path} >{obj.name}</Link>
-      )}
-    </div>
-        
-  )}
-}
+      //  logo={this.props.logo}  navContainerStyle={this.props.navContainerStyle} navContainerTheme={this.props.navContainerTheme} sectionsContainerTheme={this.props.sectionsContainerTheme} sectionsContainerStyle={this.props.sectionsContainerStyle} sectionOneStyle={this.props.sectionOneStyle} sectionOneTheme={this.props.sectionOneTheme} logoWrapperStyle={this.props.logoWrapperStyle} logoWrapperTheme={this.props.logoWrapperTheme} logoTheme={this.props.logoTheme} logoImageStyle={this.props.logoImageStyle} logoImageTheme={this.props.logoImageTheme} navItemStyle={this.props.navItemStyle} navItemTheme={this.props.navItemTheme} linksWrapperStyle={this.props.linksWrapperStyle} linksWrapperTheme={this.props.linksWrapperTheme} linksTheme={this.props.linksTheme} 

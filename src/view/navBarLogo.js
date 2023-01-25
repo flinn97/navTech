@@ -8,6 +8,9 @@ import NavThemeFactory from '../componentListNPM/navThemes/navThemeFactory';
 export default class Logo extends Component {
   constructor(props){
     super(props);
+    this.state={
+      f: NavThemeFactory?.getNavThemeFactory()
+    }
   }
 
   render(){
@@ -15,22 +18,74 @@ export default class Logo extends Component {
     let state = app.state;
     let styles = state.styles;
     
-    let switchcase = app.state.switchcase;
+    let switchCase = app.state.switchCase;
     let dispatch = app.dispatch;
     let theme = {
-      legato: <LegatoLogo logo={this.props.logo} app={app} alignment={this.props.alignment} theme={this.props.theme} navContainerStyle={this.props.navContainerStyle} navContainerTheme={this.props.navContainerTheme} sectionsContainerTheme={this.props.sectionsContainerTheme} sectionsContainerStyle={this.props.sectionsContainerStyle} sectionOneStyle={this.props.sectionOneStyle} sectionOneTheme={this.props.sectionOneTheme} logoWrapperStyle={this.props.logoWrapperStyle} logoWrapperTheme={this.props.logoWrapperTheme} logoTheme={this.props.logoTheme} logoImageStyle={this.props.logoImageStyle} logoImageTheme={this.props.logoImageTheme} />
+
+      legato: <LegatoLogo logo={this.props.logo} app={app} alignment={this.props.alignment} theme={this.props.theme} obj={this.props.obj} options={this.props.options}
+      logoImageStyle={this.props.options?.logoImageStyle} 
+      logoImageTheme={this.props.options?.logoImageTheme} />,
+
+      flinnApps:<FlinnAppsLogo logo={this.props.logo} app={app} alignment={this.props.alignment} theme={this.props.theme} obj={this.props.obj} options={this.props.options}
+      logoImageStyle={this.props.options?.logoImageStyle} 
+      logoImageTheme={this.props.options?.logoImageTheme} />,
+
+      default:<DefaultLogo logo={this.props.logo} app={app} alignment={this.props.alignment} theme={this.props.theme} obj={this.props.obj} options={this.props.options}
+      logoImageStyle={this.props.options?.logoImageStyle} 
+      logoImageTheme={this.props.options?.logoImageTheme} />,
     }
     let f = NavThemeFactory?.getNavThemeFactory();
     let style = this.props.theme?f[this.props.theme]:state.theme?f[state.theme]:f.default;
-    let wrapper = theme[this.props.alignment];
+    let wrapper = style[this.props.alignment];
   return (
-    <div style={this.props.logoWrapperStyle?{...this.props.logoWrapperStyle}:this.props.logoWrapperTheme?{...f[this.props.logoWrapperTheme][this.props.alignment].logoWrapper}:{...wrapper?.logoWrapper}}>
+    <div style={this.props.options?.logoWrapperStyle?{...this.props.options?.logoWrapperStyle}:this.props.options?.logoWrapperTheme?{...f[this.props.options?.logoWrapperTheme][this.props.alignment].logoWrapper}:{...wrapper?.logoWrapper}}>
+      
       {this.props.logoTheme?theme[this.props.logoTheme]:this.props.theme?theme[this.props.theme]:theme.default}
     </div>
         
   )}
 }
 
+class DefaultLogo extends Component {
+  constructor(props){
+    super(props);
+  }
+
+  render(){
+    let app = this.props.app;
+    let state = app.state;
+    let styles = state.styles;
+    
+    let switchCase = app.state.switchCase;
+    let dispatch = app.dispatch;
+    let f = NavThemeFactory?.getNavThemeFactory();
+    let style = this.props.theme?f[this.props.theme]:state.theme?f[state.theme]:f.default;
+    let logo = style[this.props.alignment];
+  return (
+      <img src={this.props.logo} style={this.props.logoImageStyle?{...this.props.logoImageStyle}:this.props.logoImageTheme?{...f[this.props.logoImageTheme][this.props.alignment].logoStyle}:{...logo.logoStyle}} />
+  )}
+}
+
+
+class FlinnAppsLogo extends Component {
+  constructor(props){
+    super(props);
+  }
+
+  render(){
+    let app = this.props.app;
+    let state = app.state;
+    let styles = state.styles;
+    
+    let switchCase = app.state.switchCase;
+    let dispatch = app.dispatch;
+    let f = NavThemeFactory?.getNavThemeFactory();
+    let style = this.props.theme?f[this.props.theme]:state.theme?f[state.theme]:f.default;
+    let logo = style[this.props.alignment];
+  return (
+      <img src={this.props.logo} style={this.props.logoImageStyle?{...this.props.logoImageStyle}:this.props.logoImageTheme?{...f[this.props.logoImageTheme][this.props.alignment].logoStyle}:{...logo.logoStyle}} />
+  )}
+}
 class LegatoLogo extends Component {
   constructor(props){
     super(props);
@@ -41,15 +96,12 @@ class LegatoLogo extends Component {
     let state = app.state;
     let styles = state.styles;
     
-    let switchcase = app.state.switchcase;
+    let switchCase = app.state.switchCase;
     let dispatch = app.dispatch;
-    let theme = {
-      
-    }
     let f = NavThemeFactory?.getNavThemeFactory();
     let style = this.props.theme?f[this.props.theme]:state.theme?f[state.theme]:f.default;
-    let logo = theme[this.props.alignment];
+    let logo = style[this.props.alignment];
   return (
-      <img src={this.props.logo} style={this.props.logoImageStyle?{...this.props.logoImageStyle}:this.props.logoImageTheme?{...f[this.props.logoImageTheme][this.props.alignment]}:{...logo.logoStyle}} />
+      <img src={this.props.logo} style={this.props.logoImageStyle?{...this.props.logoImageStyle}:this.props.logoImageTheme?{...f[this.props.logoImageTheme][this.props.alignment].logoStyle}:{...logo.logoStyle}} />
   )}
 }

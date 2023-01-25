@@ -11,6 +11,9 @@ export default class CardsPrac extends Component {
 
     }
   }
+  componentDidMount(){
+    this.props.app.dispatch({linkChange:'Cards'})
+  }
  
 
 

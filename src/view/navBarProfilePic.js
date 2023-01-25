@@ -1,6 +1,6 @@
 import { Component } from 'react';
 //what do I change the below imports to again? Do I need to pass down the actual font import to each component or just the container?
-import defaultProfilePic from './fakePortrait.png';
+import defaultProfilePic from './Legato.svg';
 import arrowIcon from './downArrow.svg';
 import '../fonts/Inter/Inter-ExtraBold.ttf';
 // import auth from '../services/auth';
@@ -22,15 +22,21 @@ export default class ProfilePic extends Component {
     let switchcase = app.state.switchcase;
     let dispatch = app.dispatch;
     let theme = {
-      legato: <LegatoProfilePic app={app} alignment={this.props.alignment} theme={this.props.theme} navContainerStyle={this.props.navContainerStyle} navContainerTheme={this.props.navContainerTheme} sectionsContainerTheme={this.props.sectionsContainerTheme} sectionsContainerStyle={this.props.sectionsContainerStyle} sectionOneStyle={this.props.sectionOneStyle} sectionOneTheme={this.props.sectionOneTheme} />
+      legato: <LegatoProfilePic app={app} alignment={this.props.alignment} theme={this.props.theme}  obj={this.props.obj} options={this.props.options}
+      profilePicInnerWrapperTheme={this.props.options?.profilePicInnerWrapperTheme}
+      profilePicInnerWrapperStyle={this.props.options?.profilePicInnerWrapperStyle}
+      profilePicImageStyle={this.props.options?.profilePicImageStyle}
+      profilePicImageTheme={this.props.options?.profilePicImageTheme}
+      />,
+      flinnApps: <FlinnAppsProfilePic app={app} alignment={this.props.alignment} theme={this.props.theme}  obj={this.props.obj} options={this.props.options}/>,
+      default: <DefaultProfilePic app={app} alignment={this.props.alignment} theme={this.props.theme}  obj={this.props.obj} options={this.props.options}/>,
     }
     let f = NavThemeFactory?.getNavThemeFactory();
     let style = this.props.theme?f[this.props.theme]:state.theme?f[state.theme]:f.default;
-    let wrapper = theme[this.props.alignment];
+    let wrapper = style[this.props.alignment];
   return (
-    //added profilePicWrapperStyle, profilePicWrapperTheme, profilePicWrapper, profilePicTheme, 
-    <div style={this.props.profilePicWrapperStyle?{...this.props.profilePicWrapperStyle}:this.props.profilePicWrapperTheme?{...f[this.props.profilePicWrapperTheme][this.props.alignment].profilePicWrapper}:{...wrapper?.profilePicWrapper}}>
-      {this.props.profilePicTheme?theme[this.props.profilePicTheme]:this.props.theme?theme[this.props.theme]:theme.default}
+    <div style={this.props.options?.profilePicWrapperStyle?{...this.props.options?.profilePicWrapperStyle}:this.props.options?.profilePicWrapperTheme?{...f[this.props.options?.profilePicWrapperTheme][this.props.alignment].profilePicWrapper}:{...wrapper?.profilePicWrapper}}>
+      {this.props.options?.profilePicTheme?theme[this.props.options?.profilePicTheme]:this.props.theme?theme[this.props.theme]:theme.default}
     </div>
   )}
 }
@@ -38,6 +44,10 @@ export default class ProfilePic extends Component {
 class LegatoProfilePic extends Component {
   constructor(props){
     super(props);
+    this.logout=this.logout.bind(this);
+  }
+  logout(){
+
   }
 
   render(){
@@ -47,27 +57,102 @@ class LegatoProfilePic extends Component {
     
     let switchcase = app.state.switchcase;
     let dispatch = app.dispatch;
-    let theme = {
-      
-    }
+
     let f = NavThemeFactory?.getNavThemeFactory();
     let style = this.props.theme?f[this.props.theme]:state.theme?f[state.theme]:f.default;
-    // let item = theme[this.props.alignment];
+    let item = style[this.props.alignment];
   return (
     <>
-    //how granular do we want to go with control of this? Which stuff is important to be able to control?
-    //what information do we need to pass in for username, profile pic, and log out?
-      <div style={{display:"flex", width:"147px", height:"42px"}}> //style.profileComponent.wrapper
-        <img src={this.props.obj?.getJson()?.picURL!==""?this.props.obj?.getJson().picURL:defaultProfilePic} width="42" style={{borderRadius:"999px"}}/>
-        <div style={{flex:"1", height:"42px", display:"flex", flexDirection:"column", justifyContent: "center", marginLeft: "15px"}}>
-          <div style={{display:"flex", width:"100%"}}>
-            <div style={{fontSize:"11px", fontWeight:"800", fontFamily:"Inter", color:"#636363" }}>Sam Sabin</div>
-            <div style={{width:"8px", padding:"none", display: "flex", marginLeft:"8px"}}><img src={arrowIcon} width="8px"/></div>
+      <div
+       style={this.props.profilePicInnerWrapperStyle?{...this.props.profilePicInnerWrapperStyle}:
+       this.props.profilePicInnerWrapperTheme?{...f[this.props.profilePicInnerWrapperTheme][this.props.alignment].profilePicInnerWrapper}:
+       {...item.profilePicInnerWrapper}}
+      > 
+        <img src={this.props.obj?.getJson()?.picURL!==undefined?this.props.obj?.getJson().picURL:defaultProfilePic}  style={this.props.profilePicImageStyle?{...this.props.profilePicImageStyle}:
+       this.props.profilePicImageTheme?{...f[this.props.profilePicImageTheme][this.props.alignment].profilePicImage}:
+       {...item.profilePicImage}}/>
+        <div style={{...item.profilePicStyles?.innerWrapper}}>
+          <div style={{...item.profilePicStyles?.nameWrapper}}>
+            <div style={{...item.profilePicStyles?.name }}>{this.props.obj?.getJson()?.firstName} {this.props.obj?.getJson()?.lastName}</div>
+            <div style={{...item.profilePicStyles?.arrowWrapper}}><img src={arrowIcon} style={{...item.profilePicImage.arrow}}/></div>
           </div>
-          <div style={{fontSize: this.props.theme.font.fontSize.fontSize1}}>log out</div>
+          <div  style={{...item.profilePicStyles.logout}} onClick={this.props.options?.logoutFunc?this.props.options?.logoutFunc():this.logout} >log out</div>
         </div>
       </div>
     </>
+        
+  )}
+}
+
+class FlinnAppsProfilePic extends Component {
+  constructor(props){
+    super(props);
+    this.logout=this.logout.bind(this);
+  }
+  logout(){
+    
+  }
+
+  render(){
+    let app = this.props.app;
+    let state = app.state;
+    let styles = state.styles;
+    
+    let switchcase = app.state.switchcase;
+    let dispatch = app.dispatch;
+
+    let f = NavThemeFactory?.getNavThemeFactory();
+    let style = this.props.theme?f[this.props.theme]:state.theme?f[state.theme]:f.default;
+    let item = style[this.props.alignment];
+  return (
+    <>
+    <div
+     style={this.props.profilePicInnerWrapperStyle?{...this.props.profilePicInnerWrapperStyle}:
+     this.props.profilePicInnerWrapperTheme?{...f[this.props.profilePicInnerWrapperTheme][this.props.alignment].profilePicInnerWrapper}:
+     {...item.profilePicInnerWrapper}}
+    > 
+      <img src={this.props.obj?.getJson()?.picURL!==undefined?this.props.obj?.getJson().picURL:defaultProfilePic}  style={this.props.profilePicImageStyle?{...this.props.profilePicImageStyle}:
+     this.props.profilePicImageTheme?{...f[this.props.profilePicImageTheme][this.props.alignment].profilePicImage}:
+     {...item.profilePicImage}}/>
+      <div style={{...item.profilePicStyles?.innerWrapper}}>
+        <div style={{...item.profilePicStyles?.nameWrapper}}>
+          <div style={{...item.profilePicStyles?.name }}>{this.props.obj?.getJson()?.firstName} {this.props.obj?.getJson()?.lastName}</div>
+          <div style={{...item.profilePicStyles?.arrowWrapper}}><img src={arrowIcon} style={{...item.profilePicImage.arrow}}/></div>
+        </div>
+        <div  style={{...item.profilePicStyles.logout}} onClick={this.props.options?.logoutFunc?this.props.options?.logoutFunc():this.logout} >log out</div>
+      </div>
+    </div>
+  </>
+        
+  )}
+}
+
+class DefaultProfilePic extends Component {
+  constructor(props){
+    super(props);
+    this.logout=this.logout.bind(this);
+  }
+  logout(){
+
+  }
+
+  render(){
+    let app = this.props.app;
+    let state = app.state;
+    let styles = state.styles;
+    
+    let switchcase = app.state.switchcase;
+    let dispatch = app.dispatch;
+
+    let f = NavThemeFactory?.getNavThemeFactory();
+    let style = this.props.theme?f[this.props.theme]:state.theme?f[state.theme]:f.default;
+    let item = style[this.props.alignment];
+  return (
+   
+        <img src={this.props.obj?.getJson()?.picURL!==undefined?this.props.obj?.getJson().picURL:defaultProfilePic} style={this.props.profilePicImageStyle?{...this.props.profilePicImageStyle}:
+        this.props.profilePicImageTheme?{...f[this.props.profilePicImageTheme][this.props.alignment].profilePicImage}:
+        {...item.profilePicImage}}/>
+       
         
   )}
 }
