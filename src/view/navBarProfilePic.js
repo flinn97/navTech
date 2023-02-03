@@ -1,6 +1,6 @@
 import { Component } from 'react';
 //what do I change the below imports to again? Do I need to pass down the actual font import to each component or just the container?
-import defaultProfilePic from './Legato.svg';
+import defaultProfilePic from './fakePortrait.png';
 import arrowIcon from './downArrow.svg';
 import '../fonts/Inter/Inter-ExtraBold.ttf';
 // import auth from '../services/auth';
@@ -23,6 +23,12 @@ export default class ProfilePic extends Component {
     let dispatch = app.dispatch;
     let theme = {
       legato: <LegatoProfilePic app={app} alignment={this.props.alignment} theme={this.props.theme}  obj={this.props.obj} options={this.props.options}
+      profilePicInnerWrapperTheme={this.props.options?.profilePicInnerWrapperTheme}
+      profilePicInnerWrapperStyle={this.props.options?.profilePicInnerWrapperStyle}
+      profilePicImageStyle={this.props.options?.profilePicImageStyle}
+      profilePicImageTheme={this.props.options?.profilePicImageTheme}
+      />,
+      legatoDark: <LegatoProfilePic app={app} alignment={this.props.alignment} theme={this.props.theme}  obj={this.props.obj} options={this.props.options}
       profilePicInnerWrapperTheme={this.props.options?.profilePicInnerWrapperTheme}
       profilePicInnerWrapperStyle={this.props.options?.profilePicInnerWrapperStyle}
       profilePicImageStyle={this.props.options?.profilePicImageStyle}
@@ -73,10 +79,12 @@ class LegatoProfilePic extends Component {
        {...item.profilePicImage}}/>
         <div style={{...item.profilePicStyles?.innerWrapper}}>
           <div style={{...item.profilePicStyles?.nameWrapper}}>
-            <div style={{...item.profilePicStyles?.name }}>{this.props.obj?.getJson()?.firstName} {this.props.obj?.getJson()?.lastName}</div>
+            {/* <div style={{...item.profilePicStyles?.name }}>{this.props.obj?.getJson()?.firstName} {this.props.obj?.getJson()?.lastName}</div> */}
+            {/* Hardcoded the bottom line to test CSS styling. The line below should be replaced with the commented line above this one */}
+            <div style={{...item.profilePicStyles?.name }}>Sam Sabin</div>
             <div style={{...item.profilePicStyles?.arrowWrapper}}><img src={arrowIcon} style={{...item.profilePicImage.arrow}}/></div>
           </div>
-          <div  style={{...item.profilePicStyles.logout}} onClick={this.props.options?.logoutFunc?this.props.options?.logoutFunc():this.logout} >log out</div>
+          <div  style={{...item.profilePicStyles.logout}} onClick={this.props.options?.logoutFunc?this.props.options?.logoutFunc():this.logout}>log out</div>
         </div>
       </div>
     </>

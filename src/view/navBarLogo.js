@@ -26,6 +26,10 @@ export default class Logo extends Component {
       logoImageStyle={this.props.options?.logoImageStyle} 
       logoImageTheme={this.props.options?.logoImageTheme} />,
 
+      legatoDark: <LegatoLogo logo={this.props.logo} app={app} alignment={this.props.alignment} theme={this.props.theme} obj={this.props.obj} options={this.props.options}
+      logoImageStyle={this.props.options?.logoImageStyle} 
+      logoImageTheme={this.props.options?.logoImageTheme} />,
+
       flinnApps:<FlinnAppsLogo logo={this.props.logo} app={app} alignment={this.props.alignment} theme={this.props.theme} obj={this.props.obj} options={this.props.options}
       logoImageStyle={this.props.options?.logoImageStyle} 
       logoImageTheme={this.props.options?.logoImageTheme} />,

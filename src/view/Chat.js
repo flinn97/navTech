@@ -1,9 +1,9 @@
 import { Component } from 'react';
 import "../App.css"
-import CardPractice from './CardPrac';
 
+// This is a default page added just to test navTech
 
-export default class NavPrac extends Component {
+export default class ChatPage extends Component {
   constructor(props) {
     super(props);
 
@@ -11,19 +11,18 @@ export default class NavPrac extends Component {
 
     }
   }
- 
   componentDidMount(){
-    this.props.app.dispatch({linkChange:'NavBar'})
+    this.props.app.dispatch({linkChange:'Chat'})
   }
+ 
+
 
   render() {
     let app = this.props.app;
 
 
     return (
-      <div><h1>Nav</h1>
-
-      
+      <div><h1>Chat</h1>
 
       </div>
 

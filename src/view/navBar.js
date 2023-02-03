@@ -22,7 +22,8 @@ export default class NavBar extends Component {
     let dispatch = app.dispatch;
     let template = {
       legato : <Legato app={app} alignment={this.props.alignment} theme={this.props.theme? this.props.theme: "legato"} obj = {this.props.obj} template={this.props.template} options={this.props.options}/>,
-       flinnApps :  <FlinnApps app={app} alignment={this.props.alignment} theme={this.props.theme? this.props.theme: "flinnApps"} obj = {this.props.obj} template={this.props.template} options={this.props.options}/>,
+      legatoDark: <Legato app={app} alignment={this.props.alignment} theme={this.props.theme? this.props.theme: "legatoDark"} obj = {this.props.obj} template={this.props.template} options={this.props.options}/>,
+      flinnApps :  <FlinnApps app={app} alignment={this.props.alignment} theme={this.props.theme? this.props.theme: "flinnApps"} obj = {this.props.obj} template={this.props.template} options={this.props.options}/>,
       default :  <DefaultNav app={app} alignment={this.props.alignment} theme={this.props.theme? this.props.theme:state.defaultTheme?state.defaultTheme: "default"} obj = {this.props.obj} template={this.props.template} options={this.props.options}/>,
     }
     let f = NavThemeFactory?.getNavThemeFactory();

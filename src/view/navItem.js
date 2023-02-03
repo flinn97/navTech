@@ -2,6 +2,8 @@ import { Component } from 'react';
 // import auth from '../services/auth';
 import "../App.css";
 
+import '../fonts/Inter/Inter-VariableFont.ttf';
+
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import NavThemeFactory from '../componentListNPM/navThemes/navThemeFactory';
 
@@ -19,6 +21,21 @@ export default class NavItems extends Component {
     let dispatch = app.dispatch;
     let theme = {
       legato: <LegatoNavItems app={app} alignment={this.props.alignment} theme={this.props.theme} obj={this.props.obj} options={this.props.options}
+        navItemStyle={this.props.options?.navItemStyle}
+        navItemTheme={this.props.options?.navItemTheme}
+        singleLinkWrapperTheme={this.props.options?.singleLinkWrapperTheme}
+        singleLinkWrapperStyle={this.props.options?.singleLinkWrapperStyle}
+        linkIconStyle={this.props.options?.linkIconStyle}
+        linkIconTheme={this.props.options?.linkIconTheme}
+        notifyStyle={this.props.options?.notifyStyle}
+        notifyTheme={this.props.options?.notifyTheme}
+        activeSingleLinkWrapperStyle={this.props.options?.activeSingleLinkWrapperStyle}
+        activeSingleLinkWrapperTheme={this.props.options?.activeSingleLinkWrapperTheme}
+        activeNavItemTheme={this.props.options?.activeNavItemTheme}
+        activeNavItemStyle={this.props.options?.activeNavItemStyle}
+      />,
+
+      legatoDark: <LegatoNavItems app={app} alignment={this.props.alignment} theme={this.props.theme} obj={this.props.obj} options={this.props.options}
         navItemStyle={this.props.options?.navItemStyle}
         navItemTheme={this.props.options?.navItemTheme}
         singleLinkWrapperTheme={this.props.options?.singleLinkWrapperTheme}
@@ -200,13 +217,13 @@ class LegatoNavItems extends Component {
                       { ...item.singleLinkWrapper }}>
 
             {obj.linkIcon && (
-              <img style={
+              <object style={
 
                 this.props.linkIconStyle ? { ...this.props.linkIconStyle } :
                   obj.linkIconStyle ? { ...obj.linkIconStyle } :
                     obj.linkIconTheme ? { ...f[obj.linkIconTheme][this.props.alignment].linkIcon } :
                       this.props.linkIconTheme ? { ...f[this.props.linkIconTheme][this.props.alignment].linkIcon } :
-                        { ...item.linkIcon }} src={obj.linkIcon} />
+                        { ...item.linkIcon }} data={obj.linkIcon} type="image/svg+xml"></object>
             )}
             <Link style={
               //active

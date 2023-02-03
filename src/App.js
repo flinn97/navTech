@@ -9,7 +9,14 @@ import CardsPrac from './view/cards';
 import PopupPrac from './view/PopupPrac';
 import ThemeFactory from './componentListNPM/themes/themeFactory';
 import NavPrac from './view/practiceNav';
-import Cel from './pics/celestial.jpg'
+import ChatPage from './view/Chat';
+
+// icons
+import calendarIcon from './icons/calendar.svg';
+import chatIcon from './icons/chat.svg';
+import dashboardIcon from './icons/dashboard.svg';
+import studentIcon from './icons/students.svg';
+
 // import NavThemeFactory from './componentListNPM/navThemes/navThemeFactory';
 
 //fonts
@@ -54,10 +61,10 @@ export default class App extends Component {
       defaultTheme: "default",
       globalTheme: "",
       switchCase:[
-        {path:"/", comp:CardsPrac, name: "Cards",}, //icon: "home.svg"   linkIcon:Cel, notification:2, notifyTheme:"flinnApps"
-        {path: "/popups", comp:PopupPrac, name: "Popups"},
-        {path:"/nav", comp:NavPrac, name: "NavBar", },
-        {path:"/logout", comp:CardsPrac, name: "Logout"}
+        {path:"/", comp:CardsPrac, name: "Cards", linkIcon:dashboardIcon, notification:2}, //icon: "home.svg"   linkIcon:Cel, notification:2, notifyTheme:"flinnApps"
+        {path: "/popups", comp:PopupPrac, name: "Popups", linkIcon:studentIcon},
+        {path:"/nav", comp:NavPrac, name: "NavBar", linkIcon:calendarIcon},
+        {path:"/chat", comp:ChatPage, name: "Chat", linkIcon:chatIcon}
       ]
 
     }
@@ -150,10 +157,7 @@ handleChange = (event) => {
       width:"100vw", 
       height:"100vh", 
       display:"flex", 
-      
       zIndex:"100",
-      
-       
       flexDirection:"column"}}>
       
       {this.state.start && <Dispatch app={{run:this.run, state:this.state, handlechange:this.handleChange, dispatch:this.dispatch, factory:this.factory}} />}

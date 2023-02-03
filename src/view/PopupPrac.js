@@ -16,7 +16,9 @@ export default class PopupPrac extends Component {
     }
   }
  
-
+  componentDidMount(){
+    this.props.app.dispatch({linkChange:'Popups'})
+  }
 
   render() {
     let app = this.props.app;

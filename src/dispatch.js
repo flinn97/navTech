@@ -1,12 +1,14 @@
 import './App.css';
 import { Component } from 'react';
-import logo from './view/testProfile.png';
+import logo from './view/Legato.svg';
 // import Home from './view/home';
 import Nav from './view/nav.js';
 // import Login from './view/login';
 // import Register from './view/register';
 import './index.css';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import legatoNav from './componentListNPM/navThemes/legatoNav';
+import legatoNavDark from './componentListNPM/navThemes/legatoNavDark';
 
 // import DeletePopup from './view/deletePopup';
 // import KeepDel from './view/keepDelete';
@@ -85,32 +87,29 @@ export default class Dispatch extends Component {
     let state = app.state;
     let styles =state.styles;
   return (
-<BrowserRouter>
-    <div style={{
-      width:"100%", 
-      height:"96vh",
-      }}>
-        
-     <Nav  app={app} type="sideBarNav"  
-     options={{
-      logo:logo,
-      
-     }}
-  
-     
-     /> 
-     {/* //notification: int variable of watching something? Or string pointing to type that gets info from object for notification. Object contains function for notifications, and it goes and interacts with it. Either give it a string or a User Object. */}
-     <div style={{paddingTop:"50px", paddingLeft:"50px", width:"100%", height:"100%"}}>
-     <Routes>
-      {state.switchCase?.map((obj, index)=>
-        <Route path={obj.path} element={<obj.comp app={app}/>} />
-      )}
-    
-</Routes>
-</div>
-     </div>
+    <BrowserRouter>
+        <div style={{width:"100%", height:"100vh",}}>
+            
+          <Nav  app={app} type="sideBarNav" template="legatoDark" 
+          options={{
+          logo:logo, 
+          // logoTheme: "legato",
+          // logoImageTheme: "legato",
+          // logoWrapperTheme: "legato",
 
-     
-     </BrowserRouter>
+          }}
+          /> 
+
+          {/* //notification: int variable of watching something? Or string pointing to type that gets info from object for notification. Object contains function for notifications, and it goes and interacts with it. Either give it a string or a User Object. */}
+          <div style={{paddingTop:"50px", paddingLeft:"200px", width:"100%", height:"100%", backgroundColor:"#F7F7F7"}}> 
+          <Routes>
+          {state.switchCase?.map((obj, index)=>
+            <Route path={obj.path} element={<obj.comp app={app}/>} />
+          )}
+          </Routes>
+          </div>
+        </div>
+        
+    </BrowserRouter>
   )}
 }
