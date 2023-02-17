@@ -25,16 +25,19 @@ export default class Nav extends Component {
     
      
     let type = {
-      topBarNav: <NavBar app={app} alignment="top" template={this.props.template}
+      topBarNav: <NavBar app={app} alignment="top"
+      template={this.props.template}
       obj={this.props.obj}
       options={this.props.options}
       theme={this.props.theme} />
       ,
 
-      sideBarNav: <NavBar  app={app} alignment="left" 
+      sideBarNav: <NavBar  app={app} alignment="left"
+      template={this.props.template}
       obj={this.props.obj}
       options={this.props.options}
-      theme={this.props.theme} template={this.props.template}/>
+      theme={this.props.theme}
+      />
 
     }
   return (

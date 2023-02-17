@@ -199,9 +199,11 @@ class LegatoNavItems extends Component {
     let f = NavThemeFactory?.getNavThemeFactory();
     let style = this.props.theme ? f[this.props.theme] : state.theme ? f[state.theme] : f.default;
     let item = style[this.props.alignment];
+
     return (
       <>
         {switchCase.map((obj, index) =>
+          <Link to={obj.path} style={{textDecoration: "none"}}>
           <div style={
             //active
             obj.name === this.state.active ? this.props.activeSingleLinkWrapperStyle ? { ...this.props.activeSingleLinkWrapperStyle } :
@@ -225,7 +227,7 @@ class LegatoNavItems extends Component {
                       this.props.linkIconTheme ? { ...f[this.props.linkIconTheme][this.props.alignment].linkIcon } :
                         { ...item.linkIcon }} data={obj.linkIcon} type="image/svg+xml"></object>
             )}
-            <Link style={
+            <div style={
               //active
               this.state.active === obj.name ?
                 this.props.activeNavItemStyle ? { ...this.props.activeNavItemStyle } :
@@ -238,7 +240,7 @@ class LegatoNavItems extends Component {
                   obj.navItemStyle ? { ...obj.navItemStyle } :
                     obj.navItemTheme ? { ...f[obj.navItemTheme][this.props.alignment].navItem } :
                       this.props.navItemTheme ? { ...f[this.props.navItemTheme][this.props.alignment].navItem } :
-                        { ...item.navItem }} to={obj.path}>{obj.name}</Link>
+                        { ...item.navItem }}>{obj.name}</div>
 
             {obj.notification && (
               <div style={
@@ -251,7 +253,7 @@ class LegatoNavItems extends Component {
               </div>)}
 
           </div>
-
+          </Link>
 
         )}
       </>

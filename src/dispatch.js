@@ -85,12 +85,12 @@ export default class Dispatch extends Component {
   render(){
     let app = this.props.app;
     let state = app.state;
-    let styles =state.styles;
+    let styles = state.styles;
   return (
     <BrowserRouter>
         <div style={{width:"100%", height:"100vh",}}>
             
-          <Nav  app={app} type="sideBarNav" template="legatoDark" 
+          <Nav  app={app} type="topBarNav" template="legato" theme="legato"
           options={{
           logo:logo, 
           // logoTheme: "legato",
@@ -101,7 +101,7 @@ export default class Dispatch extends Component {
           /> 
 
           {/* //notification: int variable of watching something? Or string pointing to type that gets info from object for notification. Object contains function for notifications, and it goes and interacts with it. Either give it a string or a User Object. */}
-          <div style={{paddingTop:"50px", paddingLeft:"200px", width:"100%", height:"100%", backgroundColor:"#F7F7F7"}}> 
+          <div style={{paddingTop:"90px", paddingLeft:"200px", width:"100%", height:"100%", backgroundColor:"#F7F7F7"}}> 
           <Routes>
           {state.switchCase?.map((obj, index)=>
             <Route path={obj.path} element={<obj.comp app={app}/>} />
