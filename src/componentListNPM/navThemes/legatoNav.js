@@ -42,24 +42,6 @@ class LegatoNav {
             sectionThree:{},
             sectionFour:{},
             sectionFive:{}
-
-        //   navContainer: {top: "0", left: "0", flexDirection: "row", width: "100%", height: "100px", display:"flex", position: "absolute", backgroundColor:"white"},
-        //   sectionsContainer: {display:"flex", flexDirection:"column", height:"100%", width:"193px"},
-        //   sectionOne: {display:"flex", flexDirection:"column", height:"100px", alignItems: "center", justifyContent: "center"},
-        //   sectionTwo: {display:"flex", flexDirection:"column", flex:"auto"},
-        //   sectionThree: {display:"flex", flexDirection:"column", height:"100px", alignItems: "center", justifyContent: "center"},
-        //   sectionFour: {display:"flex", flexDirection:"column", height:"100px", alignItems: "center", justifyContent: "center"},
-        //   sectionFive: {display:"flex", flexDirection:"column", height:"100px", alignItems: "center", justifyContent: "center"},
-        //   logoStyle: {width:"86px"},
-        //   logoWrapper: {width:"100%", height:"100%", marginLeft:'30px', backgroundColor: "green"},
-        //   profilePicWrapper: {display:"flex", flexDirection:"column", height:"100px", alignItems: "center", justifyContent: "center"},
-        //   profilePicTheme: {fonts: {font1:"Inter"}, fontColors: {color1: "green"}, fontWeight: {bold: "800"}, fontSize: {fontSize1: "11px"}},
-        //   navItemStyle: {},
-        //   linksWrapper: {backgroundColor:'green'}, 
-          //finish this
-          // profileComponent: {
-          //   wrapper: {}
-          // },
           },
 
           // Styling for Side Bar

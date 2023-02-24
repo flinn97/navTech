@@ -1,14 +1,17 @@
 import './App.css';
 import { Component } from 'react';
+//import logo from './view/FlinnTechLogo.svg';
 import logo from './view/Legato.svg';
 // import Home from './view/home';
-import Nav from './view/nav.js';
+import Nav from './view/nav.js'; 
 // import Login from './view/login';
 // import Register from './view/register';
 import './index.css';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import legatoNav from './componentListNPM/navThemes/legatoNav';
 import legatoNavDark from './componentListNPM/navThemes/legatoNavDark';
+import flinnApps from './componentListNPM/navThemes/flinnAppsNav';
+import minimalNav from './componentListNPM/navThemes/minimalNav';
 
 // import DeletePopup from './view/deletePopup';
 // import KeepDel from './view/keepDelete';
@@ -90,9 +93,10 @@ export default class Dispatch extends Component {
     <BrowserRouter>
         <div style={{width:"100%", height:"100vh",}}>
             
-          <Nav  app={app} type="topBarNav" template="legato" theme="legato"
+          <Nav  app={app} type="sideBarNav" template="flinnApps"
           options={{
           logo:logo, 
+          title:"Products",
           // logoTheme: "legato",
           // logoImageTheme: "legato",
           // logoWrapperTheme: "legato",

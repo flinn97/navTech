@@ -2,7 +2,6 @@ import { Component } from 'react';
 // import auth from '../services/auth';
 import "../App.css";
 import NavItems from './navItem';
-// import NavTitle from './navTitle';
 
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import Logo from './navBarLogo';
@@ -10,7 +9,7 @@ import ProfilePic from './navBarProfilePic';
 
 import NavThemeFactory from '../componentListNPM/navThemes/navThemeFactory';
 
-export default class FlinnApps extends Component {
+export default class Minimal extends Component {
   constructor(props){
     super(props);
   }
@@ -19,7 +18,6 @@ export default class FlinnApps extends Component {
     let app = this.props.app;
     let state = app.state;
     let styles = state.styles;
-    let obj = this.props.obj;
     
     let switchCase = app.state.switchCase;
     let dispatch = app.dispatch;
@@ -37,32 +35,8 @@ export default class FlinnApps extends Component {
       <div style={this.props.options?.sectionTwoStyle?{...this.props.options?.sectionTwoStyle}:
       this.props.options?.sectionTwoTheme?{...f[this.props.options?.sectionTwoTheme][this.props.alignment].sectionTwo}:
       {...style.sectionTwo}}>
-
-        {/* navTitle */}
-        <div style={this.props.options?.navTitleStyle?{...this.props.options?.navTitleStyle}:
-        this.props.options?.navTitleTheme?{...f[this.props.options?.navTitleTheme][this.props.alignment].navTitle}:{...style.navTitle}}>
-        {this.props.options.title}
-        </div>
-        {/* <NavTitle></NavTitle> */}
-
-        <NavItems app={app} alignment={this.props.alignment} theme={this.props.theme} obj={this.props.obj} options={{...this.props.options, linkSection: 1}} />
-        
+        <NavItems app={app} alignment={this.props.alignment} theme={this.props.theme} obj={this.props.obj} options={this.props.options}/>
       </div>
-      <div style={this.props.options?.sectionTwoStyle?{...this.props.options?.sectionTwoStyle}:
-      this.props.options?.sectionTwoTheme?{...f[this.props.options?.sectionTwoTheme][this.props.alignment].sectionTwo}:
-      {...style.sectionTwo}}>
-
-        {/* navTitle */}
-        <div style={this.props.options?.navTitleStyle?{...this.props.options?.navTitleStyle}:
-        this.props.options?.navTitleTheme?{...f[this.props.options?.navTitleTheme][this.props.alignment].navTitle}:{...style.navTitle}}>
-        {this.props.options.title}
-        </div>
-        {/* <NavTitle></NavTitle> */}
-
-        <NavItems app={app} alignment={this.props.alignment} theme={this.props.theme} obj={this.props.obj} options={{...this.props.options, linkSection: 2}} />
-        
-      </div>
-      
      <div style={this.props.options?.sectionThreeStyle?{...this.props.options?.sectionThreeStyle}:
      this.props.options?.sectionThreeTheme?{...f[this.props.options?.sectionThreeTheme][this.props.alignment].sectionThree}:{...style.sectionThree}}>
         <ProfilePic app={app} alignment={this.props.alignment} theme={this.props.theme} obj={this.props.obj} options={this.props.options} />
