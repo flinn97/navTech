@@ -16,7 +16,7 @@ import calendarIcon from './icons/calendar.svg';
 import chatIcon from './icons/chat.svg';
 import dashboardIcon from './icons/dashboard.svg';
 import studentIcon from './icons/students.svg';
-
+import navThemeFactory from './componentListNPM/navThemes/navThemeFactory';
 // import NavThemeFactory from './componentListNPM/navThemes/navThemeFactory';
 
 //fonts
@@ -32,6 +32,8 @@ export default class App extends Component {
     this.state={
       start: false,
       styles: undefined,
+      phoneUIChange: 500,
+      ipadUIChange: 1000,
       loginPage: true,
       registerPage:false,
       user: undefined,
@@ -93,7 +95,7 @@ export default class App extends Component {
       
       let currentComponent = await this.state.componentListInterface.getOperationsFactory().operationsFactoryListener({operate: operate, object:object, operation: operation});
       
-      console.log(currentComponent);
+      
       let key = await this.state.componentListInterface.getOperationsFactory().getSplice(operate);
       if(currentComponent!==undefined){
         this.setState({currentComponent: currentComponent[key][0]});
@@ -135,6 +137,17 @@ handleChange = (event) => {
       
       this.setState({styles:styles, start:true});
     }
+    window.addEventListener("resize", async ()=>{
+      let themeFactory = new ThemeFactory();
+      let f = await themeFactory.getThemeFactory();
+      let style = this.state.globalTheme!==""? this.state.globalTheme: this.state.defaultTheme!==""? this.state.defaultTheme: "default"
+      let styles = f[style];
+      // if(window.innerWidth<=500){
+        navThemeFactory.reloadComponents()
+      // }
+      
+      this.setState({styles:styles, start:true});
+    })
     let list;
     if(this.state.componentListInterface && this.state.componentList===undefined){
         list= await this.state.componentListInterface.createComponentList();
@@ -151,6 +164,7 @@ handleChange = (event) => {
         }
         
     }
+
   
     
     

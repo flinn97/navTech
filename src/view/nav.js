@@ -29,9 +29,7 @@ export default class Nav extends Component {
       template={this.props.template}
       obj={this.props.obj}
       options={this.props.options}
-      theme={this.props.theme} />
-      ,
-
+      theme={this.props.theme} />,
       sideBarNav: <NavBar  app={app} alignment="left"
       template={this.props.template}
       obj={this.props.obj}
@@ -42,6 +40,7 @@ export default class Nav extends Component {
     }
   return (
     <>
+    
       {this.props.type? type[this.props.type]:type.topBarNav}
       </>
   )}

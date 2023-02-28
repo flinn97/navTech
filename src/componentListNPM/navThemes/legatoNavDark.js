@@ -159,7 +159,7 @@ class LegatoNavDark {
               sectionFive:{}
               }
           }
-          if(window.innerWidth < 600) {
+          if(window.innerWidth < 500) {
             return phoneStyle
           } else {
             return style

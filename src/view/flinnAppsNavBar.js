@@ -63,6 +63,7 @@ export default class FlinnApps extends Component {
         
       </div>
       
+      
      <div style={this.props.options?.sectionThreeStyle?{...this.props.options?.sectionThreeStyle}:
      this.props.options?.sectionThreeTheme?{...f[this.props.options?.sectionThreeTheme][this.props.alignment].sectionThree}:{...style.sectionThree}}>
         <ProfilePic app={app} alignment={this.props.alignment} theme={this.props.theme} obj={this.props.obj} options={this.props.options} />

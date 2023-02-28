@@ -76,7 +76,9 @@ import minimalNav from './componentListNPM/navThemes/minimalNav';
  * sectionsContainerTheme
  * navContainerStyle
  * navContainerTheme
- * 
+ * phoneUI
+ * phoneUITheme
+ * phoneUIAlignment
  */
 export default class Dispatch extends Component {
   constructor(props){
@@ -93,10 +95,11 @@ export default class Dispatch extends Component {
     <BrowserRouter>
         <div style={{width:"100%", height:"100vh",}}>
             
-          <Nav  app={app} type="sideBarNav" template="flinnApps"
+          <Nav  app={app} type="topBarNav" template="legato" 
           options={{
           logo:logo, 
-          title:"Products",
+          phoneUIAlignment: "left"
+          
           // logoTheme: "legato",
           // logoImageTheme: "legato",
           // logoWrapperTheme: "legato",

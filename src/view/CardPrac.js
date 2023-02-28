@@ -124,7 +124,7 @@ class BiggestCardColorTab extends Component{
     let state = app.state;
     let componentList = state.componentList;
     let styles =state.styles;
-    console.log(styles?.biggestCard);
+    
 
     return(
     <div  style={{...styles?.biggestCard}}>   

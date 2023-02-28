@@ -10,23 +10,32 @@ import minimalNav from "./minimalNav";
 class NavThemeFactory {
     operationsFactory;
 
-    factory ={
-    //     defaultSideNav: DefaultSideNav.getNavTheme(),
-    //    defaultTopNav: DefaultTopNav.getNavTheme(),
-    legato: LegatoNav.getNavTheme(),
-    legatoDark: LegatoNavDark.getNavTheme(),
-    flinnApps: flinnApps.getNavTheme(),
-    minimal: minimalNav.getNavTheme(),
-    default: DefaultNav.getNavTheme(),
+    factory = {
+        //     defaultSideNav: DefaultSideNav.getNavTheme(),
+        //    defaultTopNav: DefaultTopNav.getNavTheme(),
+        legato: LegatoNav.getNavTheme(),
+        legatoDark: LegatoNavDark.getNavTheme(),
+        flinnApps: flinnApps.getNavTheme(),
+        minimal: minimalNav.getNavTheme(),
+        default: DefaultNav.getNavTheme(),
     }
 
-    registerComponents(register){
-        this.factory[register.name]= register.component;
+    registerComponents(register) {
+        this.factory[register.name] = register.component;
     }
-    getNavThemeFactory(){
+    getNavThemeFactory() {
         return this.factory;
     }
+    reloadComponents() {
+        this.factory = {
+            legato: LegatoNav.getNavTheme(),
+            legatoDark: LegatoNavDark.getNavTheme(),
+            flinnApps: flinnApps.getNavTheme(),
+            minimal: minimalNav.getNavTheme(),
+            default: DefaultNav.getNavTheme(),
+        }
+    }
 
-   
+
 }
 export default new NavThemeFactory();

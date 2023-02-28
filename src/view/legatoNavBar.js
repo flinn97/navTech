@@ -6,13 +6,20 @@ import NavItems from './navItem';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import Logo from './navBarLogo';
 import ProfilePic from './navBarProfilePic';
-
+import pic from "./Legato.svg"
 import NavThemeFactory from '../componentListNPM/navThemes/navThemeFactory';
+
+
+
 
 export default class Legato extends Component {
   constructor(props){
     super(props);
+
+    this.state={
+    }
   }
+
 
   render(){
     let app = this.props.app;
@@ -42,6 +49,6 @@ export default class Legato extends Component {
         <ProfilePic app={app} alignment={this.props.alignment} theme={this.props.theme} obj={this.props.obj} options={this.props.options} />
       </div> 
     </div>
-        
   )}
 }
+
