@@ -183,6 +183,7 @@ handleChange = (event) => {
       flexDirection:"column"}}>
       
       {this.state.start && <Dispatch app={{run:this.run, state:this.state, handlechange:this.handleChange, dispatch:this.dispatch, factory:this.factory}} />}
+
     </div>
   )}
 }

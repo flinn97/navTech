@@ -199,3 +199,9 @@ export class PhoneBottomNav extends Component {
         
   )}
 }
+
+//minimal top and 
+//left singular
+//topandbottom nav
+//bottom nav
+//slider

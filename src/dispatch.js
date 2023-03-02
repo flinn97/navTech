@@ -72,13 +72,20 @@ import minimalNav from './componentListNPM/navThemes/minimalNav';
  * sectionTwoTheme
  * sectionThreeStyle
  * sectionThreeTheme
+ * 
+ * 
  * sectionsContainerStyle
  * sectionsContainerTheme
  * navContainerStyle
  * navContainerTheme
+ * IpadUI
+ * ipadUIAlignment
  * phoneUI
  * phoneUITheme
  * phoneUIAlignment
+ * 
+ * Slider button
+ * changing the style theme
  */
 export default class Dispatch extends Component {
   constructor(props){
@@ -95,14 +102,9 @@ export default class Dispatch extends Component {
     <BrowserRouter>
         <div style={{width:"100%", height:"100vh",}}>
             
-          <Nav  app={app} type="topBarNav" template="legato" 
+          <Nav  app={app} type="sideBarNav" 
           options={{
           logo:logo, 
-          phoneUIAlignment: "left"
-          
-          // logoTheme: "legato",
-          // logoImageTheme: "legato",
-          // logoWrapperTheme: "legato",
 
           }}
           /> 
