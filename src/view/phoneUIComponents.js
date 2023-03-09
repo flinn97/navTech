@@ -66,10 +66,10 @@ export class LegatoPhone extends Component {
     let theme = this.props.theme?f[this.props.theme]:state.theme?f[state.theme]:f.default;
     let style = theme[this.props.alignment];
     let phoneUI = {
-      flinnApps :  <FlinnApps app={app} alignment={this.props.alignment} theme={this.props.options?.phoneTheme? this.props.options?.phoneTheme:"flinnApps"} obj = {this.props.obj} template={this.props.template} options={this.props.options}/>,
+      flinnApps: <FlinnApps app={app} alignment={this.props.alignment} theme={this.props.options?.phoneTheme? this.props.options?.phoneTheme:"flinnApps"} obj = {this.props.obj} template={this.props.template} options={this.props.options}/>,
       legato: <Legato app={app} alignment={this.props.alignment} theme={this.props.options?.phoneTheme? this.props.options?.phoneTheme:this.props.theme} obj = {this.props.obj} template={this.props.template} options={this.props.options}/>,
       default: <Minimal app={app} alignment={this.props.alignment}  theme={this.props.options?.phoneTheme? this.props.options?.phoneTheme:"minimal"}ptions={this.props.options}/>,
-      minimal:<Minimal app={app} alignment={this.props.alignment} theme={this.props.options?.phoneTheme? this.props.options?.phoneTheme:"minimal"} obj = {this.props.obj} template={this.props.template} options={this.props.options}/>,
+      minimal: <Minimal app={app} alignment={this.props.alignment} theme={this.props.options?.phoneTheme? this.props.options?.phoneTheme:"minimal"} obj = {this.props.obj} template={this.props.template} options={this.props.options}/>,
     }
   return (
     <div style={this.props.options?.phoneUIsectionsContainerStyle?{...this.props.options?.phoneUIsectionsContainerStyle, position:"absolute", left:this.state.left}:
@@ -187,14 +187,8 @@ export class PhoneBottomNav extends Component {
     {...style.sectionsContainer}}>
        <div style={this.props.options?.sectionOneStyle?{...this.props.options?.sectionOneStyle}:
        this.props.options?.sectionOneTheme?{...f[this.props.options?.sectionOneTheme][this.props.alignment].sectionOne}:{...style.sectionOne}}>
-        <Logo logoTheme={this.props.options?.logoTheme} logo={this.props.options?.logo} app={app} alignment={this.props.alignment} theme={this.props.theme} obj={this.props.obj} options={this.props.options}/>
-      </div>
-      <div style={this.props.options?.sectionTwoStyle?{...this.props.options?.sectionTwoStyle}:
-      this.props.options?.sectionTwoTheme?{...f[this.props.options?.sectionTwoTheme][this.props.alignment].sectionTwo}:
-      {...style.sectionTwo}}>
         <NavItems app={app} alignment={this.props.alignment} theme={this.props.theme} obj={this.props.obj} options={this.props.options}/>
       </div>
-
     </div>
         
   )}

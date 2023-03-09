@@ -100,12 +100,12 @@ export default class Dispatch extends Component {
     let styles = state.styles;
   return (
     <BrowserRouter>
-        <div style={{width:"100%", height:"100vh",}}>
+        <div style={{width:"100%", height:"100vh", overflow:"hidden"}}>
             
-          <Nav  app={app} type="sideBarNav" 
+          <Nav  app={app} type="sideBarNav" template="legato"
           options={{
           logo:logo, 
-
+          // navItemTheme: window.innerwidth < 600 ? "minimal": "default"
           }}
           /> 
 

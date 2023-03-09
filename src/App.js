@@ -66,10 +66,10 @@ export default class App extends Component {
         {path:"/nav", comp:NavPrac, name: "NavBar", linkIcon:calendarIcon, linkSection: 1},
         {path:"/chat", comp:ChatPage, name: "Chat", linkIcon:chatIcon, linkSection: 1},
 
-        {path:"/", comp:CardsPrac, name: "Product 1", linkIcon:dashboardIcon, notification:2, linkSection: 2}, //icon: "home.svg"   linkIcon:Cel, notification:2, notifyTheme:"flinnApps"
-        {path: "/popups", comp:PopupPrac, name: "Product 2", linkIcon:studentIcon, linkSection: 2},
-        {path:"/nav", comp:NavPrac, name: "Product 3", linkIcon:calendarIcon, linkSection: 2},
-        {path:"/chat", comp:ChatPage, name: "Product 4", linkIcon:chatIcon, linkSection: 2}
+        // {path:"/", comp:CardsPrac, name: "Product 1", linkIcon:dashboardIcon, notification:2, linkSection: 2}, //icon: "home.svg"   linkIcon:Cel, notification:2, notifyTheme:"flinnApps"
+        // {path: "/popups", comp:PopupPrac, name: "Product 2", linkIcon:studentIcon, linkSection: 2},
+        // {path:"/nav", comp:NavPrac, name: "Product 3", linkIcon:calendarIcon, linkSection: 2},
+        // {path:"/chat", comp:ChatPage, name: "Product 4", linkIcon:chatIcon, linkSection: 2}
 
         // {path:"/", comp:CardsPrac, name: "Cards"}, //icon: "home.svg"   linkIcon:Cel, notification:2, notifyTheme:"flinnApps"
         // {path: "/popups", comp:PopupPrac, name: "Popups"},
